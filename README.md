@@ -1,3 +1,14 @@
+## Solution:
+Models:
+-   RandomForestClassifier
+-   SVC 
+-   GaussianNB
+
+Best Model:
+-   Random Forest
+
+
+
 # Machine Learning Engineer Nanodegree
 # Supervised Learning
 ## Project: Finding Donors for CharityML
