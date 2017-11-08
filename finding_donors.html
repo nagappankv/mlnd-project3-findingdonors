@@ -11813,7 +11813,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="prompt input_prompt">In&nbsp;[48]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Import libraries necessary for this project</span>
@@ -11931,7 +11931,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="prompt input_prompt">In&nbsp;[56]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Total number of records</span>
@@ -12025,7 +12025,7 @@ Percentage of individuals making more than $50,000: 24.78%
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="prompt input_prompt">In&nbsp;[57]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Split the data into features and target label</span>
@@ -12367,7 +12367,7 @@ AQEAALQ9AGaz6XodUMKrAAAAAElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="prompt input_prompt">In&nbsp;[58]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Log-transform the skewed features</span>
@@ -12704,7 +12704,7 @@ SZIkqbX/Dw7mqWDp/pY1AAAAAElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="prompt input_prompt">In&nbsp;[59]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Import sklearn.preprocessing.StandardScaler</span>
@@ -12917,15 +12917,20 @@ SZIkqbX/Dw7mqWDp/pY1AAAAAElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="prompt input_prompt">In&nbsp;[60]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># One-hot encode the &#39;features_log_minmax_transform&#39; data using pandas.get_dummies()</span>
 <span class="n">features_final</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">features_log_minmax_transform</span><span class="p">)</span>
 
 <span class="c1"># Encode the &#39;income_raw&#39; data to numerical values</span>
-<span class="n">income</span> <span class="o">=</span> <span class="n">income_raw</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="s1">&#39;&gt;50K&#39;</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span>
-
+<span class="n">income</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">income_raw</span><span class="p">:</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="s2">&quot;&gt;50K&quot;</span><span class="p">):</span>
+        <span class="n">income</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">income</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        
 <span class="c1"># Print the number of features after one-hot encoding</span>
 <span class="n">encoded</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">features_final</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
 <span class="k">print</span> <span class="s2">&quot;{} total features after one-hot encoding.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">encoded</span><span class="p">))</span>
@@ -12970,7 +12975,7 @@ SZIkqbX/Dw7mqWDp/pY1AAAAAElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="prompt input_prompt">In&nbsp;[61]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Import train_test_split</span>
@@ -13060,7 +13065,7 @@ It is a ratio of true positives(words classified as spam, and which are actually
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="prompt input_prompt">In&nbsp;[67]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="sd">&#39;&#39;&#39;</span>
@@ -13071,21 +13076,18 @@ It is a ratio of true positives(words classified as spam, and which are actually
 <span class="sd">TN = 0 # No predicted negatives in the naive case</span>
 <span class="sd">FN = 0 # No predicted negatives in the naive case</span>
 <span class="sd">&#39;&#39;&#39;</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">confusion_matrix</span>
+<span class="n">TP</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">n_greater_50k</span><span class="p">)</span>
+<span class="n">FP</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">n_at_most_50k</span><span class="p">)</span>
+
+<span class="n">TN</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">FN</span> <span class="o">=</span> <span class="mi">0</span>
 
 <span class="c1"># Calculate accuracy, precision and recall</span>
-<span class="n">accuracy</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">n_greater_50k</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">n_records</span><span class="p">)</span>
+<span class="n">accuracy</span> <span class="o">=</span> <span class="p">(</span><span class="n">TP</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">TP</span><span class="o">+</span><span class="n">FP</span><span class="p">)</span>
+<span class="n">recall</span> <span class="o">=</span> <span class="p">(</span><span class="n">TP</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">TP</span><span class="o">+</span><span class="n">FN</span><span class="p">)</span>
+<span class="n">precision</span> <span class="o">=</span> <span class="p">(</span><span class="n">TP</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">TP</span><span class="o">+</span><span class="n">FP</span><span class="p">)</span>
 
-<span class="n">cnf_matrix</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">income</span><span class="p">,[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">income</span><span class="p">))</span>
-<span class="n">TN</span> <span class="o">=</span> <span class="n">cnf_matrix</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">FP</span> <span class="o">=</span> <span class="n">cnf_matrix</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">FN</span> <span class="o">=</span> <span class="n">cnf_matrix</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">TP</span> <span class="o">=</span> <span class="n">cnf_matrix</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
-
-<span class="n">recall</span> <span class="o">=</span> <span class="p">(</span><span class="nb">float</span><span class="p">)(</span><span class="n">TP</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">TP</span><span class="o">+</span><span class="n">FN</span><span class="p">)</span>
-<span class="n">precision</span> <span class="o">=</span> <span class="p">(</span><span class="nb">float</span><span class="p">)(</span><span class="n">TP</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">TP</span><span class="o">+</span><span class="n">FP</span><span class="p">)</span>
-
-<span class="c1"># TODO: Calculate F-score using the formula above for beta = 0.5 and correct values for precision and recall.</span>
+<span class="c1"># Calculate F-score using the formula above for beta = 0.5 and correct values for precision and recall.</span>
 <span class="n">fscore</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">precision</span> <span class="o">*</span> <span class="n">recall</span> <span class="o">/</span> <span class="p">(</span><span class="mf">0.5</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">precision</span> <span class="o">+</span> <span class="n">recall</span><span class="p">)</span>
 
 <span class="c1"># Print the results </span>
@@ -13199,9 +13201,9 @@ It is a ratio of true positives(words classified as spam, and which are actually
 <p><strong>Model: Naive Bayes: </strong><br />
 <strong>Real-World Application: </strong><br /></p>
 
-<pre><code>- Email spam detection&lt;br /&gt;
-- Classify an article to a category i.e. "Technology" "Politics" "Sports" etc.&lt;br /&gt;
-- Sentimental Analysis and Recommendation System&lt;br /&gt;
+<pre><code>- Email spam detection 
+- Classify an article to a category i.e. "Technology" "Politics" "Sports" etc.
+- Sentimental Analysis and Recommendation System
 
 </code></pre>
 <p><strong>Strength: </strong><br /></p>
@@ -13222,7 +13224,7 @@ It is a ratio of true positives(words classified as spam, and which are actually
 
 <pre><code>- Big data, assuming they are normally distributed
 - Multinomial distributed data and events
-- Boolean or independent, Bernoulli-generated data
+- Where we have tousands of data points and quite a few vaiable in the training set
 
 </code></pre>
 <p>**References:<br />
@@ -13264,7 +13266,7 @@ In the code block below, you will need to implement the following:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="prompt input_prompt">In&nbsp;[63]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Import two metrics from sklearn - fbeta_score and accuracy_score</span>
@@ -13286,7 +13288,7 @@ In the code block below, you will need to implement the following:</p>
     
     <span class="c1"># Fit the learner to the training data using slicing with &#39;sample_size&#39; using .fit(training_features[:], training_labels[:])</span>
     <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span> <span class="c1"># Get start time</span>
-    <span class="n">learner</span> <span class="o">=</span> <span class="n">learner</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+    <span class="n">learner</span> <span class="o">=</span> <span class="n">learner</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">[:</span><span class="n">sample_size</span><span class="p">],</span> <span class="n">y_train</span><span class="p">[:</span><span class="n">sample_size</span><span class="p">])</span>
     <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span> <span class="c1"># Get end time</span>
     
     <span class="c1"># Calculate the training time</span>
@@ -14196,7 +14198,7 @@ Out of the three chose models(Random Forest, SVM and Naive Bayes),Random Forest 
 <p><strong>Answer: </strong> 
 Random Forest is choosen as the final model.</p>
 <p>Random forests also known as Ensemble method are a way of averaging multiple deep decision trees, trained on different parts of the same training set, with the goal of overcoming over-fitting(Overfitting occurs when the model is excessively complex leading very poor performance on unseen dataset) problem of individual decision tree. For instance, a Random Forest might contain 10 Decision Trees.</p>
-<p>In Decision Trees, the population or sample is splitted into two or more homogeneous sets based on most significant splitter / differentiator in input variables. Each Decision Tree receives a different subset of the data from the training dataset, so each will be slightly different and predict slightly differently. To recieve the predictions from the whole forest, the predictions of the trees are averaged out in case of regression and voting in case of classification.</p>
+<p>In Decision Trees, the population or sample is splitted into two or more homogeneous sets based on the input variables. Each Decision Tree receives a different subset of the data from the training dataset, so each will be slightly different and predict slightly differently. To recieve the predictions from the whole forest, the predictions of the trees are averaged out in case of regression and voting in case of classification.</p>
 <p>The main principle behind ensemble methods is that a group of “weak learners” can come together to form a “strong learner” where weak learners are deceision trees.</p>
 <p>Steps:
     -Take distinctive subset of preparing tests 
@@ -14401,7 +14403,11 @@ RandomForestClassifier(bootstrap=True, class_weight=None, criterion=&#39;gini&#3
 - Capital Loss
 
 </code></pre>
-<p>Occupation and education is so realted to the income. Hours of weeks says if the person worked full-time or part-time which will be reflected as income. To predict the income class the Captial gain and loss is needed.</p>
+<p>Occupation and education is so realted to the income.
+Occupation: A person's occupation greatly affects his/her earning. In a place like California, there is a high probability that a person who is an Engineer will earn more compared to others.<br />
+Hours of weeks says if the person worked full-time or part-time which will be reflected as income.<br />
+Capital Gain: This is the most obvious of the choice. Capital Gain = Profit of a person. More the profit more the chances of being in &gt;50K mark.<br />
+Captital Loss: The more the loss, the less the chances are for the person to be in &gt;50K mark.</p>
 
 </div>
 </div>
@@ -14799,7 +14805,7 @@ Features important for prediction:</p>
 - Education num    
 
 </code></pre>
-<p>I think that the age is relevant so that we can see the person experience.</p>
+<p>I think that the age is relevant so that we can see the person experience. Marital status will give more confidence whether individual can donate or not.</p>
 
 </div>
 </div>
